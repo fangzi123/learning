@@ -1,4 +1,4 @@
-package com.wangff.learning.designpatterns.observer;
+package com.wangff.learning.designpatterns.observer.enums;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

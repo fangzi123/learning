@@ -1,7 +1,8 @@
 package com.wangff.learning;
 
-import com.wangff.learning.designpatterns.observer.ColorEnum;
+import com.wangff.learning.designpatterns.observer.enums.ColorEnum;
 import com.wangff.learning.designpatterns.observer.Subject;
+import net.minidev.json.JSONObject;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,9 +22,11 @@ public class LearningApplicationTests {
 //		Subject subject = new LightSubject();
 //		subject.addObserver(car);
 //		subject.addObserver(bus);
-		subject.change(ColorEnum.RED);
-		subject.change(ColorEnum.YELLOW);
-		subject.change(ColorEnum.GREEN);
+		JSONObject jsonObject = new JSONObject();
+		jsonObject.put("red",1);
+		jsonObject.put("green","2");
+		subject.change(jsonObject);
+		subject.change(jsonObject.toJSONString());
 	}
 
 }

@@ -8,7 +8,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 @Component
-public class LightSubject implements   Subject {
+public class SubjectImpl implements   Subject {
     public Object message;
     Set<Observer> observerList = new HashSet<>();
     @Autowired
@@ -28,7 +28,7 @@ public class LightSubject implements   Subject {
 
     public void notifyObservers() {
         observerList.forEach(a->{
-            a.move(message);
+            a.execute(message);
         });
     }
 
