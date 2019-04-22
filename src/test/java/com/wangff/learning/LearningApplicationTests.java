@@ -1,5 +1,10 @@
 package com.wangff.learning;
 
+import com.wangff.learning.designpatterns.adapter.Adaptee;
+import com.wangff.learning.designpatterns.adapter.TargetAdapter;
+import com.wangff.learning.designpatterns.chain.CaseChain;
+import com.wangff.learning.designpatterns.chain.OneCase;
+import com.wangff.learning.designpatterns.chain.TwoCase;
 import com.wangff.learning.designpatterns.observer.enums.ColorEnum;
 import com.wangff.learning.designpatterns.observer.Subject;
 import net.minidev.json.JSONObject;
@@ -15,18 +20,27 @@ import org.springframework.test.context.junit4.SpringRunner;
 public class LearningApplicationTests {
 	@Autowired
 	private Subject subject;
+
 	@Test
 	public void observer() {
-//		Observer car = new CarObserver();
-//		Observer bus = new BusObserver();
-//		Subject subject = new LightSubject();
-//		subject.addObserver(car);
-//		subject.addObserver(bus);
 		JSONObject jsonObject = new JSONObject();
 		jsonObject.put("red",1);
 		jsonObject.put("green","2");
 		subject.change(jsonObject);
 		subject.change(jsonObject.toJSONString());
 	}
+	@Test
+	public void adapter() {
+		TargetAdapter adapter = new TargetAdapter(new Adaptee());
+		adapter.execute();
+	}
 
+	@Test
+	public void chain() {
+		String context = "123";
+		CaseChain caseChain = new CaseChain();
+		caseChain.addBaseCase(new OneCase())
+				 .addBaseCase(new TwoCase());
+		caseChain.doSomething(context, caseChain);
+	}
 }
