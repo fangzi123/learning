@@ -6,11 +6,14 @@ import com.wangff.learning.designpatterns.chain.CaseChain;
 import com.wangff.learning.designpatterns.chain.OneCase;
 import com.wangff.learning.designpatterns.chain.TwoCase;
 import com.wangff.learning.designpatterns.decorator.*;
-import com.wangff.learning.designpatterns.observer.enums.ColorEnum;
+import com.wangff.learning.designpatterns.iterator.ConcreteAggregate;
+import com.wangff.learning.designpatterns.iterator.Iterator;
+import com.wangff.learning.designpatterns.iterator.MyList;
 import com.wangff.learning.designpatterns.observer.Subject;
 import com.wangff.learning.designpatterns.proxy.JdkProxy;
 import com.wangff.learning.designpatterns.proxy.OneService;
 import com.wangff.learning.designpatterns.proxy.OneServiceImpl;
+import lombok.extern.slf4j.Slf4j;
 import net.minidev.json.JSONObject;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -18,7 +21,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
-
+@Slf4j
 @RunWith(SpringRunner.class)
 @SpringBootTest(classes = LearningApplication.class)
 public class LearningApplicationTests {
@@ -59,5 +62,18 @@ public class LearningApplicationTests {
 		JdkProxy jdkProxy = new JdkProxy(new OneServiceImpl());
 		OneService proxy =(OneService)jdkProxy.getProxy();
 		proxy.test();
+	}
+
+	@Test
+	public void iterator() {
+		MyList list=new ConcreteAggregate();
+		list.add("a");
+		list.add("b");
+		list.add("c");
+		list.add("d");
+		Iterator it=list.iterator();
+		while(it.hasNext()){
+			log.info("{}",it.next());
+		}
 	}
 }
