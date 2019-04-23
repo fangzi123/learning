@@ -5,6 +5,7 @@ import com.wangff.learning.designpatterns.adapter.TargetAdapter;
 import com.wangff.learning.designpatterns.chain.CaseChain;
 import com.wangff.learning.designpatterns.chain.OneCase;
 import com.wangff.learning.designpatterns.chain.TwoCase;
+import com.wangff.learning.designpatterns.decorator.*;
 import com.wangff.learning.designpatterns.observer.enums.ColorEnum;
 import com.wangff.learning.designpatterns.observer.Subject;
 import net.minidev.json.JSONObject;
@@ -42,5 +43,11 @@ public class LearningApplicationTests {
 		caseChain.addBaseCase(new OneCase())
 				 .addBaseCase(new TwoCase());
 		caseChain.doSomething(context, caseChain);
+	}
+
+	@Test
+	public void decorator() {
+		Decorator decorator = new ConcreteDecoratorB(new ConcreteDecoratorA(new ConcreteComponent()));
+		decorator.sampleOperation();
 	}
 }
