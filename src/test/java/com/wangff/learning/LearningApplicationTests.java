@@ -8,6 +8,9 @@ import com.wangff.learning.designpatterns.chain.TwoCase;
 import com.wangff.learning.designpatterns.decorator.*;
 import com.wangff.learning.designpatterns.observer.enums.ColorEnum;
 import com.wangff.learning.designpatterns.observer.Subject;
+import com.wangff.learning.designpatterns.proxy.JdkProxy;
+import com.wangff.learning.designpatterns.proxy.OneService;
+import com.wangff.learning.designpatterns.proxy.OneServiceImpl;
 import net.minidev.json.JSONObject;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -49,5 +52,12 @@ public class LearningApplicationTests {
 	public void decorator() {
 		Decorator decorator = new ConcreteDecoratorB(new ConcreteDecoratorA(new ConcreteComponent()));
 		decorator.sampleOperation();
+	}
+
+	@Test
+	public void jdkProxy() {
+		JdkProxy jdkProxy = new JdkProxy(new OneServiceImpl());
+		OneService proxy =(OneService)jdkProxy.getProxy();
+		proxy.test();
 	}
 }
