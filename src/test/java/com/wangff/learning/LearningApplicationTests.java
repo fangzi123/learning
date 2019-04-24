@@ -83,6 +83,5 @@ public class LearningApplicationTests {
 	@Test
 	public void singleton() {
 		Singleton.getInstance().add(1,2);
-		Singleton.add1(1,2);
 	}
 }
