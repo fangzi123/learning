@@ -13,6 +13,7 @@ import com.wangff.learning.designpatterns.observer.Subject;
 import com.wangff.learning.designpatterns.proxy.JdkProxy;
 import com.wangff.learning.designpatterns.proxy.OneService;
 import com.wangff.learning.designpatterns.proxy.OneServiceImpl;
+import com.wangff.learning.designpatterns.singleton.Singleton;
 import lombok.extern.slf4j.Slf4j;
 import net.minidev.json.JSONObject;
 import org.junit.Test;
@@ -20,6 +21,8 @@ import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
+
+import javax.servlet.SingleThreadModel;
 
 @Slf4j
 @RunWith(SpringRunner.class)
@@ -75,5 +78,11 @@ public class LearningApplicationTests {
 		while(it.hasNext()){
 			log.info("{}",it.next());
 		}
+	}
+
+	@Test
+	public void singleton() {
+		Singleton.getInstance().add(1,2);
+		Singleton.add1(1,2);
 	}
 }
