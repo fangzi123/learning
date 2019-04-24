@@ -6,6 +6,8 @@ import com.wangff.learning.designpatterns.chain.CaseChain;
 import com.wangff.learning.designpatterns.chain.OneCase;
 import com.wangff.learning.designpatterns.chain.TwoCase;
 import com.wangff.learning.designpatterns.decorator.*;
+import com.wangff.learning.designpatterns.factory.Car;
+import com.wangff.learning.designpatterns.factory.FactoryCar;
 import com.wangff.learning.designpatterns.iterator.ConcreteAggregate;
 import com.wangff.learning.designpatterns.iterator.Iterator;
 import com.wangff.learning.designpatterns.iterator.MyList;
@@ -15,6 +17,7 @@ import com.wangff.learning.designpatterns.proxy.OneService;
 import com.wangff.learning.designpatterns.proxy.OneServiceImpl;
 import com.wangff.learning.designpatterns.singleton.Singleton;
 import lombok.extern.slf4j.Slf4j;
+import net.bytebuddy.asm.Advice;
 import net.minidev.json.JSONObject;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -83,5 +86,12 @@ public class LearningApplicationTests {
 	@Test
 	public void singleton() {
 		Singleton.getInstance().add(1,2);
+	}
+	@Autowired
+	private FactoryCar factoryCar;
+	@Test
+	public void factory() {
+		Car car = factoryCar.getInstance("benchi");
+		car.eat();
 	}
 }
