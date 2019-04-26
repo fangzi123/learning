@@ -1,7 +1,9 @@
 package com.wangff.learning;
 
+import com.alibaba.fastjson.JSON;
 import com.wangff.learning.designpatterns.adapter.Adaptee;
 import com.wangff.learning.designpatterns.adapter.TargetAdapter;
+import com.wangff.learning.designpatterns.build.*;
 import com.wangff.learning.designpatterns.chain.CaseChain;
 import com.wangff.learning.designpatterns.chain.OneCase;
 import com.wangff.learning.designpatterns.chain.TwoCase;
@@ -20,15 +22,12 @@ import com.wangff.learning.designpatterns.templateMethod.Coffee;
 import com.wangff.learning.designpatterns.templateMethod.RefreshBeverage;
 import com.wangff.learning.designpatterns.templateMethod.Tea;
 import lombok.extern.slf4j.Slf4j;
-import net.bytebuddy.asm.Advice;
 import net.minidev.json.JSONObject;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
-
-import javax.servlet.SingleThreadModel;
 
 @Slf4j
 @RunWith(SpringRunner.class)
@@ -116,5 +115,16 @@ public class LearningApplicationTests {
 		RefreshBeverage b2 = new Tea();
 		b2.prepareBeverageTemplate();
 		System.out.println("茶水好了······");
+	}
+
+	@Test
+	public void build() {
+		IBuilder builderA = new BuilderA();
+		Director director = new Director(builderA);
+		Production p=director.build();
+
+
+		Simple simple = Simple.builder().id(1L).build();
+		log.info("simple=={}", JSON.toJSONString(simple));
 	}
 }
