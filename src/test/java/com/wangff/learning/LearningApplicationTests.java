@@ -16,6 +16,9 @@ import com.wangff.learning.designpatterns.proxy.JdkProxy;
 import com.wangff.learning.designpatterns.proxy.OneService;
 import com.wangff.learning.designpatterns.proxy.OneServiceImpl;
 import com.wangff.learning.designpatterns.singleton.Singleton;
+import com.wangff.learning.designpatterns.templateMethod.Coffee;
+import com.wangff.learning.designpatterns.templateMethod.RefreshBeverage;
+import com.wangff.learning.designpatterns.templateMethod.Tea;
 import lombok.extern.slf4j.Slf4j;
 import net.bytebuddy.asm.Advice;
 import net.minidev.json.JSONObject;
@@ -93,5 +96,25 @@ public class LearningApplicationTests {
 	public void factory() {
 		Car car = factoryCar.getInstance("benchi");
 		car.eat();
+	}
+
+	@Test
+	public void templateMethod() {
+		/**
+		 * 父类提供模板方法
+		 * 共性的放到抽象父类中实现
+		 * 个性化的在子类中实现
+		 */
+		System.out.println("制备咖啡中······");
+		RefreshBeverage b1 = new Coffee();
+		b1.prepareBeverageTemplate();
+		System.out.println("咖啡好了········");
+
+		//制备茶的测试代码
+		System.out.println("\n*********************************");
+		System.out.println("制备茶水中······");
+		RefreshBeverage b2 = new Tea();
+		b2.prepareBeverageTemplate();
+		System.out.println("茶水好了······");
 	}
 }
