@@ -18,6 +18,7 @@ import com.wangff.learning.designpatterns.proxy.JdkProxy;
 import com.wangff.learning.designpatterns.proxy.OneService;
 import com.wangff.learning.designpatterns.proxy.OneServiceImpl;
 import com.wangff.learning.designpatterns.singleton.Singleton;
+import com.wangff.learning.designpatterns.strategy.*;
 import com.wangff.learning.designpatterns.templateMethod.Coffee;
 import com.wangff.learning.designpatterns.templateMethod.RefreshBeverage;
 import com.wangff.learning.designpatterns.templateMethod.Tea;
@@ -126,5 +127,24 @@ public class LearningApplicationTests {
 
 		Simple simple = Simple.builder().id(1L).build();
 		log.info("simple=={}", JSON.toJSONString(simple));
+	}
+
+	@Test
+	public void executeStrategy() {
+		int a=4,b=2;
+		CalculatorContext context = new CalculatorContext(new OperationAdd());
+		System.out.println("a + b = "+context.executeStrategy(a, b));
+
+		CalculatorContext context2 = new CalculatorContext(new OperationSub());
+		System.out.println("a - b = "+context2.executeStrategy(a, b));
+
+		CalculatorContext context3 = new CalculatorContext(new OperationMul());
+		System.out.println("a * b = "+context3.executeStrategy(a, b));
+
+		CalculatorContext context4 = new CalculatorContext(new OperationDiv());
+		System.out.println("a / b = "+context4.executeStrategy(a, b));
+
+		CalculateStrategy strategy = new OperationSub();
+		strategy.doOperation(a,b);
 	}
 }
