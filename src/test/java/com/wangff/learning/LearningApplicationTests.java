@@ -10,6 +10,8 @@ import com.wangff.learning.designpatterns.chain.TwoCase;
 import com.wangff.learning.designpatterns.decorator.*;
 import com.wangff.learning.designpatterns.factory.Car;
 import com.wangff.learning.designpatterns.factory.FactoryCar;
+import com.wangff.learning.designpatterns.flyweight.Circle;
+import com.wangff.learning.designpatterns.flyweight.ShapeFactory;
 import com.wangff.learning.designpatterns.iterator.ConcreteAggregate;
 import com.wangff.learning.designpatterns.iterator.Iterator;
 import com.wangff.learning.designpatterns.iterator.MyList;
@@ -147,4 +149,27 @@ public class LearningApplicationTests {
 		CalculateStrategy strategy = new OperationSub();
 		strategy.doOperation(a,b);
 	}
+
+    private static final String colors[] = { "Red", "Green", "Blue"};
+
+    private static String getRandomColor() {
+        return colors[(int)(Math.random()*colors.length)];
+    }
+    private static int getRandomX() {
+        return (int)(Math.random()*100 );
+    }
+    private static int getRandomY() {
+        return (int)(Math.random()*100);
+    }
+
+    @Test
+    public void flyweight() {
+        for(int i=0; i < 10; ++i) {
+            Circle circle =
+                    (Circle) ShapeFactory.getCircle(getRandomColor());
+            circle.setXYR(getRandomX(),getRandomY(),10);
+            circle.draw();
+        }
+    }
+
 }
