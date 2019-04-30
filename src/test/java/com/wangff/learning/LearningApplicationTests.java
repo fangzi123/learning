@@ -10,6 +10,8 @@ import com.wangff.learning.designpatterns.chain.TwoCase;
 import com.wangff.learning.designpatterns.command.ConcreteCommandA;
 import com.wangff.learning.designpatterns.command.Invoker;
 import com.wangff.learning.designpatterns.command.Receiver;
+import com.wangff.learning.designpatterns.composite.Composite;
+import com.wangff.learning.designpatterns.composite.Leaf;
 import com.wangff.learning.designpatterns.decorator.*;
 import com.wangff.learning.designpatterns.factory.Car;
 import com.wangff.learning.designpatterns.factory.FactoryCar;
@@ -180,4 +182,31 @@ public class LearningApplicationTests {
         Invoker invoker = new Invoker(new ConcreteCommandA(receiver));
         invoker.orderA("111111111111");
     }
+
+    //通过递归遍历树
+    public static void display(Composite root){
+        for(com.wangff.learning.designpatterns.composite.Component c:root.getChildren()){	//叶子节点
+            if(c instanceof Leaf){
+                c.doSomething();
+            }else{	//树枝节点
+                display((Composite)c);
+            }
+        }
+    }
+    @Test
+    public  void composite() {
+        //创建一个根节点
+        Composite root = new Composite();
+        root.doSomething();
+        //创建一个树枝构件
+        Composite branch = new Composite();
+        //创建一个叶子节点
+        Leaf leaf = new Leaf();
+        //建立整体
+        root.add(branch);
+        branch.add(leaf);
+    }
+
+
+
 }
