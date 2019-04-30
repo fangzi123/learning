@@ -7,6 +7,9 @@ import com.wangff.learning.designpatterns.build.*;
 import com.wangff.learning.designpatterns.chain.CaseChain;
 import com.wangff.learning.designpatterns.chain.OneCase;
 import com.wangff.learning.designpatterns.chain.TwoCase;
+import com.wangff.learning.designpatterns.command.ConcreteCommandA;
+import com.wangff.learning.designpatterns.command.Invoker;
+import com.wangff.learning.designpatterns.command.Receiver;
 import com.wangff.learning.designpatterns.decorator.*;
 import com.wangff.learning.designpatterns.factory.Car;
 import com.wangff.learning.designpatterns.factory.FactoryCar;
@@ -171,5 +174,10 @@ public class LearningApplicationTests {
             circle.draw();
         }
     }
-
+    @Test
+    public  void command() {
+        Receiver receiver = new Receiver();
+        Invoker invoker = new Invoker(new ConcreteCommandA(receiver));
+        invoker.orderA("111111111111");
+    }
 }
