@@ -1,0 +1,502 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<generatorConfiguration>
+    <!--<context id="MYSQLTables" targetRuntime="MyBatis3">-->
+    <context id="Mysql" targetRuntime="MyBatis3Simple" defaultModelType="flat">
+        <!--<plugin type="com.wdcloud.mybatis.plugins.DaoPlugin">-->
+            <!--<property name="targetProject" value="src/main/java"/>-->
+            <!--<property name="topLevelClass" value="com.wdcloud.lms.core.base.dao"/>-->
+            <!--<property name="parentClass" value="com.wdcloud.common.dao.CommonDao"/>-->
+        <!--</plugin>-->
+        <!--<plugin type="com.wdcloud.mybatis.plugins.LombokPlugin">-->
+            <!--<property name="data" value="true"/>-->
+        <!--</plugin>-->
+        <!--<plugin type="com.wdcloud.mybatis.plugins.EntityHelperPlugin"/>-->
+        <!--<plugin type="com.wdcloud.mybatis.plugins.ImplementsPlugin">-->
+            <!--<property name="object" value="com.payment.container.aop.Logable"/>-->
+        <!--</plugin>-->
+        <plugin type="org.mybatis.generator.plugins.SerializablePlugin"/>
+        <plugin type="tk.mybatis.mapper.generator.MapperPlugin">
+            <property name="mappers" value="tk.mybatis.mapper.common.Mapper"/>
+            <!-- caseSensitive默认false，当数据库表名区分大小写时，可以将该属性设置为true -->
+            <property name="caseSensitive" value="false"/>
+
+        </plugin>
+
+        <jdbcConnection driverClass="com.mysql.cj.jdbc.Driver"
+                        connectionURL="jdbc:mysql://192.168.9.240:3306/lms?characterEncoding=utf8&amp;serverTimezone=UTC&amp;useSSL=false&amp;allowPublicKeyRetrieval=true&amp;nullCatalogMeansCurrent=true"
+                        userId="lms" password="lmsZdWI1o">
+        </jdbcConnection>
+
+        <javaModelGenerator targetPackage="com.wangff.learning.api.model"
+                            targetProject="src/main/java"/>
+
+        <sqlMapGenerator targetPackage="mapper"
+                         targetProject="src/main/resources"/>
+
+        <javaClientGenerator targetPackage="com.wangff.learning.api.mapper"
+                             targetProject="src/main/java" type="XMLMAPPER"/>
+
+        <!--<table schema="lms" tableName="cos_message" domainObjectName="Message">-->
+            <!--<property name="useActualColumnNames" value="false"/>-->
+            <!--<generatedKey column="id" sqlStatement="mysql" identity="true"/>-->
+        <!--</table>-->
+        <!--<table schema="lms" tableName="cos_message_related" domainObjectName="MessageRelated">-->
+            <!--<property name="useActualColumnNames" value="false"/>-->
+            <!--<generatedKey column="id" sqlStatement="mysql" identity="true"/>-->
+        <!--</table>-->
+       <!--<table schema="lms" tableName="cos_message_send" domainObjectName="MessageSend">-->
+            <!--<property name="useActualColumnNames" value="false"/>-->
+            <!--<generatedKey column="id" sqlStatement="mysql" identity="true"/>-->
+        <!--</table>-->
+         <table schema="lms" tableName="cos_message_subject_user_star" domainObjectName="MessageSubjectUserStar">
+            <property name="useActualColumnNames" value="false"/>
+            <generatedKey column="id" sqlStatement="mysql" identity="true"/>
+        </table>
+       <!-- <table schema="lms" tableName="cos_message_rec" domainObjectName="MessageRec">
+            <property name="useActualColumnNames" value="false"/>
+            <generatedKey column="id" sqlStatement="mysql" identity="true"/>
+        </table>-->
+        <!--<table schema="lms" tableName="cos_message" domainObjectName="Message">
+            <property name="useActualColumnNames" value="false"/>
+            <generatedKey column="id" sqlStatement="mysql" identity="true"/>
+         </table>-->
+        <!--<table schema="lms" tableName="cos_assign_user" domainObjectName="AssignUser">-->
+        <!--<property name="useActualColumnNames" value="false"/>-->
+        <!--<generatedKey column="id" sqlStatement="mysql" identity="true"/>-->
+        <!--</table>-->
+
+         <!--&lt;!&ndash;course &ndash;&gt;-->
+        <!--<table schema="lms" tableName="cos_assign" domainObjectName="Assign">-->
+            <!--<property name="useActualColumnNames" value="false"/>-->
+            <!--<generatedKey column="id" sqlStatement="mysql" identity="true"/>-->
+        <!--</table>-->
+        <!--<table schema="lms" tableName="sys_org_user" domainObjectName="OrgUser">-->
+            <!--<property name="useActualColumnNames" value="false"/>-->
+            <!--<generatedKey column="id" sqlStatement="mysql" identity="true"/>-->
+        <!--</table>-->
+
+        <!--<table schema="lms" tableName="cos_assignment" domainObjectName="Assignment">-->
+            <!--<property name="useActualColumnNames" value="false"/>-->
+            <!--<generatedKey column="id" sqlStatement="mysql" identity="true"/>-->
+        <!--</table>-->
+
+        <!--<table schema="lms" tableName="cos_assignment_group" domainObjectName="AssignmentGroup">-->
+            <!--<property name="useActualColumnNames" value="false"/>-->
+            <!--<generatedKey column="id" sqlStatement="mysql" identity="true"/>-->
+        <!--</table>-->
+
+        <!--<table schema="lms" tableName="cos_assignment_group_item" domainObjectName="AssignmentGroupItem">-->
+            <!--<property name="useActualColumnNames" value="false"/>-->
+            <!--<generatedKey column="id" sqlStatement="mysql" identity="true"/>-->
+        <!--</table>-->
+        <!--<table schema="lms" tableName="cos_course" domainObjectName="Course">-->
+            <!--<property name="useActualColumnNames" value="false"/>-->
+            <!--<generatedKey column="id" sqlStatement="mysql" identity="true"/>-->
+        <!--</table>-->
+        <!--<table schema="lms" tableName="cos_course_config" domainObjectName="CourseConfig">-->
+            <!--<property name="useActualColumnNames" value="false"/>-->
+            <!--<generatedKey column="id" sqlStatement="mysql" identity="true"/>-->
+        <!--</table>-->
+        <!--<table schema="lms" tableName="cos_course_nav" domainObjectName="CourseNav">-->
+            <!--<property name="useActualColumnNames" value="false"/>-->
+            <!--<generatedKey column="id" sqlStatement="mysql" identity="true"/>-->
+        <!--</table>-->
+        <!--<table schema="lms" tableName="cos_course_user" domainObjectName="CourseUser">-->
+            <!--<property name="useActualColumnNames" value="false"/>-->
+            <!--<generatedKey column="id" sqlStatement="mysql" identity="true"/>-->
+        <!--</table>-->
+        <!--<table schema="lms" tableName="cos_discussion" domainObjectName="Discussion">-->
+            <!--<property name="useActualColumnNames" value="false"/>-->
+            <!--<generatedKey column="id" sqlStatement="mysql" identity="true"/>-->
+        <!--</table>-->
+
+        <!--<table schema="lms" tableName="cos_discussion_reply" domainObjectName="DiscussionReply">-->
+            <!--<property name="useActualColumnNames" value="false"/>-->
+            <!--<generatedKey column="id" sqlStatement="mysql" identity="true"/>-->
+        <!--</table>-->
+        <!--<table schema="lms" tableName="cos_discussion_subscribe" domainObjectName="DiscussionSubscribe">-->
+            <!--<property name="useActualColumnNames" value="false"/>-->
+            <!--<generatedKey column="id" sqlStatement="mysql" identity="true"/>-->
+        <!--</table>-->
+        <!--<table schema="lms" tableName="cos_grade_scheme" domainObjectName="GradeScheme">-->
+            <!--<property name="useActualColumnNames" value="false"/>-->
+            <!--<generatedKey column="id" sqlStatement="mysql" identity="true"/>-->
+        <!--</table>-->
+        <!--<table schema="lms" tableName="cos_grade_scheme_item" domainObjectName="GradeSchemeItem">-->
+            <!--<property name="useActualColumnNames" value="false"/>-->
+            <!--<generatedKey column="id" sqlStatement="mysql" identity="true"/>-->
+        <!--</table>-->
+        <!--<table schema="lms" tableName="cos_module" domainObjectName="Module">-->
+            <!--<property name="useActualColumnNames" value="false"/>-->
+            <!--<generatedKey column="id" sqlStatement="mysql" identity="true"/>-->
+        <!--</table>-->
+        <!--<table schema="lms" tableName="cos_module_item" domainObjectName="ModuleItem">-->
+            <!--<property name="useActualColumnNames" value="false"/>-->
+            <!--<generatedKey column="id" sqlStatement="mysql" identity="true"/>-->
+        <!--</table>-->
+        <!--<table schema="lms" tableName="cos_module_prerequisite" domainObjectName="ModulePrerequisite">-->
+            <!--<property name="useActualColumnNames" value="false"/>-->
+            <!--<generatedKey column="id" sqlStatement="mysql" identity="true"/>-->
+        <!--</table>-->
+        <!--<table schema="lms" tableName="cos_module_requirement" domainObjectName="ModuleRequirement">-->
+            <!--<property name="useActualColumnNames" value="false"/>-->
+            <!--<generatedKey column="id" sqlStatement="mysql" identity="true"/>-->
+        <!--</table>-->
+        <!--<table schema="lms" tableName="cos_question" domainObjectName="Question">-->
+            <!--<property name="useActualColumnNames" value="false"/>-->
+            <!--<generatedKey column="id" sqlStatement="mysql" identity="true"/>-->
+        <!--</table>-->
+        <!--<table schema="lms" tableName="cos_question_option" domainObjectName="QuestionOption">-->
+            <!--<property name="useActualColumnNames" value="false"/>-->
+            <!--<generatedKey column="id" sqlStatement="mysql" identity="true"/>-->
+        <!--</table>-->
+        <!--<table schema="lms" tableName="cos_question_match_option" domainObjectName="QuestionMatchOption">-->
+            <!--<property name="useActualColumnNames" value="false"/>-->
+            <!--<generatedKey column="id" sqlStatement="mysql" identity="true"/>-->
+        <!--</table>-->
+
+        <!--<table schema="lms" tableName="cos_quiz" domainObjectName="Quiz">-->
+            <!--<property name="useActualColumnNames" value="false"/>-->
+            <!--<generatedKey column="id" sqlStatement="mysql" identity="true"/>-->
+        <!--</table>-->
+        <!--<table schema="lms" tableName="cos_quiz_item" domainObjectName="QuizItem">-->
+            <!--<property name="useActualColumnNames" value="false"/>-->
+            <!--<generatedKey column="id" sqlStatement="mysql" identity="true"/>-->
+        <!--</table>-->
+        <!--<table schema="lms" tableName="cos_section_user" domainObjectName="SectionUser">-->
+            <!--<property name="useActualColumnNames" value="false"/>-->
+            <!--<generatedKey column="id" sqlStatement="mysql" identity="true"/>-->
+        <!--</table>-->
+        <!--<table schema="lms" tableName="cos_section" domainObjectName="Section">-->
+            <!--<property name="useActualColumnNames" value="false"/>-->
+            <!--<generatedKey column="id" sqlStatement="mysql" identity="true"/>-->
+        <!--</table>-->
+        <!--<table schema="lms" tableName="cos_page" domainObjectName="Page">-->
+            <!--<property name="useActualColumnNames" value="false"/>-->
+            <!--<generatedKey column="id" sqlStatement="mysql" identity="true"/>-->
+        <!--</table>-->
+        <!--<table schema="lms" tableName="cos_question_group" domainObjectName="QuestionGroup">-->
+            <!--<property name="useActualColumnNames" value="false"/>-->
+            <!--<generatedKey column="id" sqlStatement="mysql" identity="true"/>-->
+        <!--</table>-->
+        <!--<table schema="lms" tableName="cos_question_bank" domainObjectName="QuestionBank">-->
+            <!--<property name="useActualColumnNames" value="false"/>-->
+            <!--<generatedKey column="id" sqlStatement="mysql" identity="true"/>-->
+        <!--</table>-->
+        <!--<table schema="lms" tableName="cos_question_template" domainObjectName="QuestionTemplate">-->
+            <!--<property name="useActualColumnNames" value="false"/>-->
+            <!--<generatedKey column="id" sqlStatement="mysql" identity="true"/>-->
+        <!--</table>-->
+        <!--<table schema="lms" tableName="cos_question_template_option" domainObjectName="QuestionTemplateOption">-->
+            <!--<property name="useActualColumnNames" value="false"/>-->
+            <!--<generatedKey column="id" sqlStatement="mysql" identity="true"/>-->
+        <!--</table>-->
+        <!--<table schema="lms" tableName="cos_question_template_match_option" domainObjectName="QuestionTemplateMatchOption">-->
+            <!--<property name="useActualColumnNames" value="false"/>-->
+            <!--<generatedKey column="id" sqlStatement="mysql" identity="true"/>-->
+        <!--</table>-->
+
+
+        <!--&lt;!&ndash; resource &ndash;&gt;-->
+        <!--<table schema="lms" tableName="res_resource" domainObjectName="Resource">-->
+            <!--<property name="useActualColumnNames" value="false"/>-->
+            <!--<generatedKey column="id" sqlStatement="mysql" identity="true"/>-->
+        <!--</table>-->
+        <!--<table schema="lms" tableName="res_resource_file" domainObjectName="ResourceFile">-->
+            <!--<property name="useActualColumnNames" value="false"/>-->
+            <!--<generatedKey column="id" sqlStatement="mysql" identity="true"/>-->
+        <!--</table>-->
+        <!--<table schema="lms" tableName="res_resource_imported_log" domainObjectName="ResourceImportedLog">-->
+            <!--<property name="useActualColumnNames" value="false"/>-->
+            <!--<generatedKey column="id" sqlStatement="mysql" identity="true"/>-->
+        <!--</table>-->
+        <!--<table schema="lms" tableName="res_resource_review" domainObjectName="ResourceReview">-->
+            <!--<property name="useActualColumnNames" value="false"/>-->
+            <!--<generatedKey column="id" sqlStatement="mysql" identity="true"/>-->
+        <!--</table>-->
+        <!--<table schema="lms" tableName="res_resource_update_log" domainObjectName="ResourceUpdateLog">-->
+            <!--<property name="useActualColumnNames" value="false"/>-->
+            <!--<generatedKey column="id" sqlStatement="mysql" identity="true"/>-->
+        <!--</table>-->
+        <!--<table schema="lms" tableName="res_resource_tag" domainObjectName="ResourceTag">-->
+            <!--<property name="useActualColumnNames" value="false"/>-->
+            <!--<generatedKey column="id" sqlStatement="mysql" identity="true"/>-->
+        <!--</table>-->
+
+
+        <!--&lt;!&ndash; common &ndash;&gt;-->
+        <!--<table schema="lms" tableName="sys_user" domainObjectName="User">-->
+            <!--<property name="useActualColumnNames" value="false"/>-->
+            <!--<generatedKey column="id" sqlStatement="mysql" identity="true"/>-->
+        <!--</table>-->
+        <!--<table schema="lms" tableName="sys_user_email" domainObjectName="UserEmail">-->
+            <!--<property name="useActualColumnNames" value="false"/>-->
+            <!--<generatedKey column="id" sqlStatement="mysql" identity="true"/>-->
+        <!--</table>-->
+        <!--<table schema="lms" tableName="sys_user_link" domainObjectName="UserLink">-->
+            <!--<property name="useActualColumnNames" value="false"/>-->
+            <!--<generatedKey column="id" sqlStatement="mysql" identity="true"/>-->
+        <!--</table>-->
+        <!--<table schema="lms" tableName="sys_org" domainObjectName="Org">-->
+            <!--<property name="useActualColumnNames" value="false"/>-->
+            <!--<generatedKey column="id" sqlStatement="mysql" identity="true"/>-->
+        <!--</table>-->
+        <!--<table schema="lms" tableName="sys_user_file" domainObjectName="UserFile">-->
+            <!--<property name="useActualColumnNames" value="false"/>-->
+            <!--<generatedKey column="id" sqlStatement="mysql" identity="true"/>-->
+        <!--</table>-->
+        <!--&lt;!&ndash;用户邮箱地址&ndash;&gt;-->
+        <!--<table schema="lms" tableName="sys_user_email" domainObjectName="UserEmail">-->
+            <!--<property name="useActualColumnNames" value="false"/>-->
+            <!--<generatedKey column="id" sqlStatement="mysql" identity="true"/>-->
+        <!--</table>-->
+        <!--<table schema="lms" tableName="sys_dictionary" domainObjectName="SysDictionary">-->
+            <!--<property name="useActualColumnNames" value="false"/>-->
+            <!--<generatedKey column="id" sqlStatement="mysql" identity="true"/>-->
+        <!--</table>-->
+        <!--<table schema="lms" tableName="sys_dictionary_value" domainObjectName="SysDictionaryValue">-->
+        <!--<property name="useActualColumnNames" value="false"/>-->
+        <!--<generatedKey column="id" sqlStatement="mysql" identity="true"/>-->
+        <!--</table>-->
+        <!--<table schema="lms" tableName="sys_event" domainObjectName="Event">-->
+            <!--<property name="useActualColumnNames" value="false"/>-->
+            <!--<generatedKey column="id" sqlStatement="mysql" identity="true"/>-->
+        <!--</table>-->
+        <!--<table schema="lms" tableName="sys_user_todo" domainObjectName="UserTodo">-->
+            <!--<property name="useActualColumnNames" value="false"/>-->
+            <!--<generatedKey column="id" sqlStatement="mysql" identity="true"/>-->
+        <!--</table>-->
+
+
+        <!--<table schema="lms" tableName="cos_study_group_set" domainObjectName="StudyGroupSet">-->
+            <!--<property name="useActualColumnNames" value="false"/>-->
+            <!--<generatedKey column="id" sqlStatement="mysql" identity="true"/>-->
+        <!--</table>-->
+        <!--<table schema="lms" tableName="cos_study_group" domainObjectName="StudyGroup">-->
+            <!--<property name="useActualColumnNames" value="false"/>-->
+            <!--<generatedKey column="id" sqlStatement="mysql" identity="true"/>-->
+        <!--</table>-->
+        <!--<table schema="lms" tableName="cos_study_group_user" domainObjectName="StudyGroupUser">-->
+            <!--<property name="useActualColumnNames" value="false"/>-->
+            <!--<generatedKey column="id" sqlStatement="mysql" identity="true"/>-->
+        <!--</table>-->
+        <!--<table schema="lms" tableName="cos_announce" domainObjectName="Announce">-->
+            <!--<property name="useActualColumnNames" value="false"/>-->
+            <!--<generatedKey column="id" sqlStatement="mysql" identity="true"/>-->
+        <!--</table>-->
+        <!--<table schema="lms" tableName="cos_announce_reply" domainObjectName="AnnounceReply">-->
+            <!--<property name="useActualColumnNames" value="false"/>-->
+            <!--<generatedKey column="id" sqlStatement="mysql" identity="true"/>-->
+        <!--</table>-->
+
+
+        <!--<table schema="lms" tableName="sys_term" domainObjectName="Term">-->
+            <!--<property name="useActualColumnNames" value="false"/>-->
+            <!--<generatedKey column="id" sqlStatement="mysql" identity="true"/>-->
+        <!--</table>-->
+        <!--<table schema="lms" tableName="sys_term_config" domainObjectName="TermConfig">-->
+            <!--<property name="useActualColumnNames" value="false"/>-->
+            <!--<generatedKey column="id" sqlStatement="mysql" identity="true"/>-->
+        <!--</table>-->
+
+
+
+        <!--<table schema="lms" tableName="cos_quiz_record" domainObjectName="QuizRecord">-->
+            <!--<property name="useActualColumnNames" value="false"/>-->
+            <!--<generatedKey column="id" sqlStatement="mysql" identity="true"/>-->
+        <!--</table>-->
+        <!--<table schema="lms" tableName="cos_quiz_question_record" domainObjectName="QuizQuestionRecord">-->
+            <!--<property name="useActualColumnNames" value="false"/>-->
+            <!--<generatedKey column="id" sqlStatement="mysql" identity="true"/>-->
+        <!--</table>-->
+        <!--<table schema="lms" tableName="cos_quiz_question_option_record" domainObjectName="QuizQuestionOptionRecord">-->
+            <!--<property name="useActualColumnNames" value="false"/>-->
+            <!--<generatedKey column="id" sqlStatement="mysql" identity="true"/>-->
+        <!--</table>-->
+        <!--<table schema="lms" tableName="cos_quiz_question_match_option_record" domainObjectName="QuizQuestionMatchOptionRecord">-->
+            <!--<property name="useActualColumnNames" value="false"/>-->
+            <!--<generatedKey column="id" sqlStatement="mysql" identity="true"/>-->
+        <!--</table>-->
+        <!--<table schema="lms" tableName="cos_quiz_question_reply_record" domainObjectName="QuizQuestionReplyRecord">-->
+            <!--<property name="useActualColumnNames" value="false"/>-->
+            <!--<generatedKey column="id" sqlStatement="mysql" identity="true"/>-->
+        <!--</table>-->
+
+
+        <!--<table schema="lms" tableName="cos_module_progression_item" domainObjectName="ModuleProgressionItem">-->
+            <!--<property name="useActualColumnNames" value="false"/>-->
+            <!--<generatedKey column="id" sqlStatement="mysql" identity="true"/>-->
+        <!--</table>-->
+
+        <!--<table schema="lms" tableName="cos_content_view_record" domainObjectName="ContentViewRecord">-->
+            <!--<property name="useActualColumnNames" value="false"/>-->
+            <!--<generatedKey column="id" sqlStatement="mysql" identity="true"/>-->
+        <!--</table>-->
+
+        <!--<table schema="lms" tableName="cos_discussion_config" domainObjectName="DiscussionConfig">-->
+            <!--<property name="useActualColumnNames" value="false"/>-->
+            <!--<generatedKey column="id" sqlStatement="mysql" identity="true"/>-->
+        <!--</table>-->
+        <!--<table schema="lms" tableName="cos_user_config" domainObjectName="UserConfig">-->
+            <!--<property name="useActualColumnNames" value="false"/>-->
+            <!--<generatedKey column="id" sqlStatement="mysql" identity="true"/>-->
+        <!--</table>-->
+
+        <!-- 作业评分表 -->
+        <!--<table schema="lms" tableName="cos_assignment_reply" domainObjectName="AssignmentReply">-->
+            <!--<property name="useActualColumnNames" value="false"/>-->
+            <!--<generatedKey column="id" sqlStatement="mysql" identity="true"/>-->
+        <!--</table>-->
+        <!--<table schema="lms" tableName="cos_assignment_comment" domainObjectName="AssignmentComment">-->
+            <!--<property name="useActualColumnNames" value="false"/>-->
+            <!--<generatedKey column="id" sqlStatement="mysql" identity="true"/>-->
+        <!--</table>-->
+
+        <!--<table schema="lms" tableName="cos_assignment_reply_attachment" domainObjectName="AssignmentReplyAttachment">-->
+            <!--<property name="useActualColumnNames" value="false"/>-->
+            <!--<generatedKey column="id" sqlStatement="mysql" identity="true"/>-->
+        <!--</table>-->
+
+
+        <!--<table schema="lms" tableName="cos_grade" domainObjectName="Grade">-->
+            <!--<property name="useActualColumnNames" value="false"/>-->
+            <!--<generatedKey column="id" sqlStatement="mysql" identity="true"/>-->
+        <!--</table>-->
+
+        <!--<table schema="lms" tableName="cos_history_grade" domainObjectName="HistoryGrade">-->
+            <!--<property name="useActualColumnNames" value="false"/>-->
+            <!--<generatedKey column="id" sqlStatement="mysql" identity="true"/>-->
+        <!--</table>-->
+
+        <!--<table schema="lms" tableName="cos_grade_comment" domainObjectName="GradeComment">-->
+            <!--<property name="useActualColumnNames" value="false"/>-->
+            <!--<generatedKey column="id" sqlStatement="mysql" identity="true"/>-->
+        <!--</table>-->
+
+        <!--<table schema="lms" tableName="cos_user_submit_record" domainObjectName="UserSubmitRecord">-->
+            <!--<property name="useActualColumnNames" value="false"/>-->
+            <!--<generatedKey column="id" sqlStatement="mysql" identity="true"/>-->
+        <!--</table>-->
+        <!--<table schema="lms" tableName="cos_course_registry_code_bank" domainObjectName="CourseRegistryCodeBank">-->
+            <!--<property name="useActualColumnNames" value="false"/>-->
+            <!--<generatedKey column="id" sqlStatement="mysql" identity="true"/>-->
+        <!--</table>-->
+
+
+        <!--<table schema="lms" tableName="cos_course_user_join_pending" domainObjectName="CourseUserJoinPending">-->
+            <!--<property name="useActualColumnNames" value="false"/>-->
+            <!--<generatedKey column="id" sqlStatement="mysql" identity="true"/>-->
+        <!--</table>-->
+
+        <!--<table schema="lms" tableName="cos_user_participate" domainObjectName="UserParticipate">-->
+            <!--<property name="useActualColumnNames" value="false"/>-->
+            <!--<generatedKey column="id" sqlStatement="mysql" identity="true"/>-->
+        <!--</table>-->
+
+
+        <!-- sis import -->
+        <!--<table schema="lms" tableName="sys_sis_import" domainObjectName="SisImport">-->
+            <!--<property name="useActualColumnNames" value="false"/>-->
+            <!--<generatedKey column="id" sqlStatement="mysql" identity="true"/>-->
+        <!--</table>-->
+        <!--<table schema="lms" tableName="sys_sis_import_file" domainObjectName="SisImportFile">-->
+            <!--<property name="useActualColumnNames" value="false"/>-->
+            <!--<generatedKey column="id" sqlStatement="mysql" identity="true"/>-->
+        <!--</table>-->
+        <!--<table schema="lms" tableName="sys_sis_import_error" domainObjectName="SisImportError">-->
+            <!--<property name="useActualColumnNames" value="false"/>-->
+            <!--<generatedKey column="id" sqlStatement="mysql" identity="true"/>-->
+        <!--</table>-->
+        <!--<table schema="lms" tableName="sys_sis_import_org" domainObjectName="SisImportOrg">-->
+            <!--<property name="useActualColumnNames" value="false"/>-->
+            <!--<generatedKey column="id" sqlStatement="mysql" identity="true"/>-->
+        <!--</table>-->
+        <!--<table schema="lms" tableName="sys_sis_import_term" domainObjectName="SisImportTerm">-->
+            <!--<property name="useActualColumnNames" value="false"/>-->
+            <!--<generatedKey column="id" sqlStatement="mysql" identity="true"/>-->
+        <!--</table>-->
+        <!--<table schema="lms" tableName="sys_sis_import_user" domainObjectName="SisImportUser">-->
+            <!--<property name="useActualColumnNames" value="false"/>-->
+            <!--<generatedKey column="id" sqlStatement="mysql" identity="true"/>-->
+        <!--</table>-->
+        <!--<table schema="lms" tableName="sys_sis_import_course" domainObjectName="SisImportCourse">-->
+            <!--<property name="useActualColumnNames" value="false"/>-->
+            <!--<generatedKey column="id" sqlStatement="mysql" identity="true"/>-->
+        <!--</table>-->
+        <!--<table schema="lms" tableName="sys_sis_import_section" domainObjectName="SisImportSection">-->
+            <!--<property name="useActualColumnNames" value="false"/>-->
+            <!--<generatedKey column="id" sqlStatement="mysql" identity="true"/>-->
+        <!--</table>-->
+
+        <!--<table schema="lms" tableName="sys_sis_import_section_user" domainObjectName="SisImportSectionUser">-->
+            <!--<property name="useActualColumnNames" value="false"/>-->
+            <!--<generatedKey column="id" sqlStatement="mysql" identity="true"/>-->
+        <!--</table>-->
+        <!--<table schema="lms" tableName="sys_sis_import_study_group_set" domainObjectName="SisImportStudyGroupSet">-->
+            <!--<property name="useActualColumnNames" value="false"/>-->
+            <!--<generatedKey column="id" sqlStatement="mysql" identity="true"/>-->
+        <!--</table>-->
+        <!--<table schema="lms" tableName="sys_sis_import_study_group" domainObjectName="SisImportStudyGroup">-->
+            <!--<property name="useActualColumnNames" value="false"/>-->
+            <!--<generatedKey column="id" sqlStatement="mysql" identity="true"/>-->
+        <!--</table>-->
+        <!--<table schema="lms" tableName="sys_sis_import_study_group_user" domainObjectName="SisImportStudyGroupUser">-->
+            <!--<property name="useActualColumnNames" value="false"/>-->
+            <!--<generatedKey column="id" sqlStatement="mysql" identity="true"/>-->
+        <!--</table>-->
+
+        <!--<table schema="lms" tableName="sys_login_record" domainObjectName="LoginRecord">-->
+            <!--<property name="useActualColumnNames" value="false"/>-->
+            <!--<generatedKey column="id" sqlStatement="mysql" identity="true"/>-->
+        <!--</table>-->
+
+        <!--<table schema="lms" tableName="cos_calendar_user_check" domainObjectName="CalendarUserCheck">-->
+            <!--<property name="useActualColumnNames" value="false"/>-->
+            <!--<generatedKey column="id" sqlStatement="mysql" identity="true"/>-->
+        <!--</table>-->
+
+        <!--<table schema="lms" tableName="cos_assignment_group_item_change_record" domainObjectName="AssignmentGroupItemChangeRecord">-->
+            <!--<property name="useActualColumnNames" value="false"/>-->
+            <!--<generatedKey column="id" sqlStatement="mysql" identity="true"/>-->
+        <!--</table>-->
+
+        <!--<table schema="lms" tableName="cos_assignment" domainObjectName="Assignment">-->
+            <!--<property name="useActualColumnNames" value="false"/>-->
+            <!--<generatedKey column="id" sqlStatement="mysql" identity="true"/>-->
+        <!--</table>-->
+
+        <!--<table schema="lms" tableName="cos_course" domainObjectName="Course">-->
+        <!--<property name="useActualColumnNames" value="false"/>-->
+        <!--<generatedKey column="id" sqlStatement="mysql" identity="true"/>-->
+        <!--</table>-->
+
+        <!--<table schema="lms" tableName="gensee_live" domainObjectName="GenseeLive">-->
+        <!--<property name="useActualColumnNames" value="false"/>-->
+        <!--<generatedKey column="id" sqlStatement="mysql" identity="true"/>-->
+        <!--</table>-->
+
+        <!--<table schema="lms" tableName="gensee_user" domainObjectName="GenseeUser">-->
+            <!--<property name="useActualColumnNames" value="false"/>-->
+            <!--<generatedKey column="id" sqlStatement="mysql" identity="true"/>-->
+        <!--</table>-->
+
+        <!--<table schema="lms" tableName="gensee_user_vod_history" domainObjectName="GenseeUserVodHistory">-->
+            <!--<property name="useActualColumnNames" value="false"/>-->
+            <!--<generatedKey column="id" sqlStatement="mysql" identity="true"/>-->
+        <!--</table>-->
+
+        <!--<table schema="lms" tableName="gensee_user_live_history" domainObjectName="GenseeUserLiveHistory">-->
+            <!--<property name="useActualColumnNames" value="false"/>-->
+            <!--<generatedKey column="id" sqlStatement="mysql" identity="true"/>-->
+        <!--</table>-->
+
+        <!--<table schema="lms" tableName="gensee_vod" domainObjectName="GenseeVod">-->
+            <!--<property name="useActualColumnNames" value="false"/>-->
+            <!--<generatedKey column="id" sqlStatement="mysql" identity="true"/>-->
+        <!--</table>-->
+    </context>
+</generatorConfiguration>
