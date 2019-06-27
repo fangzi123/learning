@@ -26,9 +26,10 @@
 
         </plugin>
 
-        <jdbcConnection driverClass="com.mysql.cj.jdbc.Driver"
-                        connectionURL="jdbc:mysql://192.168.9.240:3306/lms?characterEncoding=utf8&amp;serverTimezone=UTC&amp;useSSL=false&amp;allowPublicKeyRetrieval=true&amp;nullCatalogMeansCurrent=true"
-                        userId="lms" password="lmsZdWI1o">
+        <jdbcConnection driverClass="com.mysql.jdbc.Driver"
+                        connectionURL="jdbc:mysql://60.205.191.136:3306/hj_eighteen_c"
+                        userId="hj_eighteen_c"
+                        password="ESwsKtarmfKWJcrL">
         </jdbcConnection>
 
         <javaModelGenerator targetPackage="com.wangff.learning.api.model"
@@ -52,10 +53,18 @@
             <!--<property name="useActualColumnNames" value="false"/>-->
             <!--<generatedKey column="id" sqlStatement="mysql" identity="true"/>-->
         <!--</table>-->
-         <table schema="lms" tableName="cos_message_subject_user_star" domainObjectName="MessageSubjectUserStar">
+        <table schema="hj_eighteen_c" tableName="vendor" domainObjectName="Vendor">
             <property name="useActualColumnNames" value="false"/>
             <generatedKey column="id" sqlStatement="mysql" identity="true"/>
         </table>
+         <!--<table schema="hj_eighteen_c" tableName="stock" domainObjectName="Stock">-->
+            <!--<property name="useActualColumnNames" value="false"/>-->
+            <!--<generatedKey column="id" sqlStatement="mysql" identity="true"/>-->
+        <!--</table>-->
+        <!--<table schema="hj_eighteen_c" tableName="stock_order" domainObjectName="StockOrder">-->
+            <!--<property name="useActualColumnNames" value="false"/>-->
+            <!--<generatedKey column="id" sqlStatement="mysql" identity="true"/>-->
+        <!--</table>-->
        <!-- <table schema="lms" tableName="cos_message_rec" domainObjectName="MessageRec">
             <property name="useActualColumnNames" value="false"/>
             <generatedKey column="id" sqlStatement="mysql" identity="true"/>
