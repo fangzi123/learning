@@ -102,5 +102,6 @@ public class KillServiceImpl implements KillService {
         stock.setSale(sale);
         stock.setVersion(version);
         stockMapper.updateByPrimaryKeySelective(stock);
+        stockOrderMapper.delete(StockOrder.builder().sid(sid).build());
     }
 }
