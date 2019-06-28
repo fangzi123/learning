@@ -32,7 +32,7 @@ public class TestController {
         list=messageSubjectUserStarMapper.selectByExample(example);
         return JSON.toJSONString(list);
     }
-    @AccessLimit(limit = 50,timeScope = 1)
+    @AccessLimit(limit = 100,timeScope = 1)
     @RequestMapping(value = "/kill/{sid}")
     public String kill(@PathVariable int sid) {
 
