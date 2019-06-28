@@ -1,6 +1,7 @@
 package com.wangff.learning.api.controller;
 
 import com.alibaba.fastjson.JSON;
+import com.wangff.learning.api.config.AccessLimit;
 import com.wangff.learning.api.mapper.MessageSubjectUserStarMapper;
 import com.wangff.learning.api.model.MessageSubjectUserStar;
 import com.wangff.learning.api.service.KillService;
@@ -30,11 +31,18 @@ public class TestController {
         list=messageSubjectUserStarMapper.selectByExample(example);
         return JSON.toJSONString(list);
     }
-
+    @AccessLimit(limit = 100)
     @RequestMapping(value = "/kill/{sid}")
     public String kill(@PathVariable int sid) {
 
         killService.kill(sid);
+        return JSON.toJSONString(1);
+    }
+
+    @RequestMapping(value = "/kill/init/{sid}")
+    public String killInit(@PathVariable int sid) {
+
+        killService.killInit(sid);
         return JSON.toJSONString(1);
     }
 }

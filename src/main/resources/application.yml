@@ -9,6 +9,11 @@ spring:
       test-on-borrow: true
       type: com.alibaba.druid.pool.DruidDataSource
       driver-class-name: com.mysql.cj.jdbc.Driver
+  redis:
+    host: 192.168.5.22
+    port: 6379
+    password: ''
+    database: 0
 
 mybatis:
   type-aliases-package: com.wangff.learning.api.model
