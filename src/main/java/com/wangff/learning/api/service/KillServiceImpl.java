@@ -91,9 +91,16 @@ public class KillServiceImpl implements KillService {
 
 
     @Override
-    public void killInit(int sid) {
-        redisService.set(RedisKeysConstant.STOCK_COUNT+sid,"100");
-        redisService.set(RedisKeysConstant.STOCK_SALE+sid,"0");
-        redisService.set(RedisKeysConstant.STOCK_VERSION+sid,"0");
+    public void killInit(int sid,int count) {
+        int sale = 0;
+        int version = 0;
+        redisService.set(RedisKeysConstant.STOCK_COUNT+sid,count+"");
+        redisService.set(RedisKeysConstant.STOCK_SALE+sid,sale+"");
+        redisService.set(RedisKeysConstant.STOCK_VERSION+sid,version+"");
+        Stock stock = stockMapper.selectOne(Stock.builder().id(sid).build());
+        stock.setCount(count);
+        stock.setSale(sale);
+        stock.setVersion(version);
+        stockMapper.updateByPrimaryKeySelective(stock);
     }
 }

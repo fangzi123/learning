@@ -8,6 +8,7 @@ import com.wangff.learning.api.service.KillService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import tk.mybatis.mapper.entity.Example;
 
@@ -31,7 +32,7 @@ public class TestController {
         list=messageSubjectUserStarMapper.selectByExample(example);
         return JSON.toJSONString(list);
     }
-    @AccessLimit(limit = 100)
+    @AccessLimit(limit = 50,timeScope = 1)
     @RequestMapping(value = "/kill/{sid}")
     public String kill(@PathVariable int sid) {
 
@@ -40,9 +41,8 @@ public class TestController {
     }
 
     @RequestMapping(value = "/kill/init/{sid}")
-    public String killInit(@PathVariable int sid) {
-
-        killService.killInit(sid);
+    public String killInit(@PathVariable int sid,@RequestParam int count) {
+        killService.killInit(sid,count);
         return JSON.toJSONString(1);
     }
 }
