@@ -1,6 +1,8 @@
 package com.wangff.learning.api.controller;
 
 import com.alibaba.fastjson.JSON;
+import com.nettyrpc.client.proxy.RpcClientProxy;
+import com.wangff.learning.api.client.HelloService;
 import com.wangff.learning.api.config.AccessLimit;
 import com.wangff.learning.api.mapper.MessageSubjectUserStarMapper;
 import com.wangff.learning.api.model.MessageSubjectUserStar;
@@ -22,6 +24,8 @@ public class TestController {
     private MessageSubjectUserStarMapper messageSubjectUserStarMapper;
     @Autowired
     private KillService killService;
+    @RpcClientProxy
+    HelloService helloService;
 
     @RequestMapping(value = "/web")
     public String importWeb(HttpServletRequest request,
@@ -45,4 +49,14 @@ public class TestController {
         killService.killInit(sid,count);
         return JSON.toJSONString(1);
     }
+
+    @RequestMapping(value = "/helloTest1")
+    public String helloTest1() {
+        long start = System.currentTimeMillis();
+//        HelloService helloService = RpcClient.create(HelloService.class);
+        String result = helloService.hello("World");
+        System.out.println("*********************"+(System.currentTimeMillis()-start));
+        return JSON.toJSONString(result);
+    }
+
 }

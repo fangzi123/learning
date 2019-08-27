@@ -115,11 +115,8 @@ public class ACM {
      * @return
      */
     public static int fibonaqi(int n){
-        if (n == 0) {
-            return 0;
-        }
-        if (n == 1) {
-            return 1;
+        if (n == 0||n==1) {
+            return n;
         }
         int f0 = 0;
         int f1 = 1;
