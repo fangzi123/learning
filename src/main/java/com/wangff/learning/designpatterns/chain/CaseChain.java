@@ -16,7 +16,8 @@ public class CaseChain implements BaseCase {
         return this; 
     } 
 
-    @Override public void doSomething(String input, BaseCase chain) {
+    @Override
+    public void doSomething(String input, BaseCase chain) {
          // 所有遍历完了，直接返回   
         if (index == mCaseList.size()) {
             log.info("链条执行结束，长度==={},rlt=={}",mCaseList.size(),input);
