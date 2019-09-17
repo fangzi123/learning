@@ -23,24 +23,8 @@
 
     <dependencies>
         <dependency>
-            <groupId>com.nettyrpc</groupId>
-            <artifactId>NettyRpc</artifactId>
-            <version>1.0-SNAPSHOT</version>
-            <exclusions>
-                <exclusion>
-                    <groupId>org.slf4j</groupId>
-                    <artifactId>slf4j-log4j12</artifactId>
-                </exclusion>
-            </exclusions>
-        </dependency>
-        <dependency>
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-lang3</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>com.wdcloud</groupId>
-            <artifactId>common-redis</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -49,7 +33,7 @@
         <dependency>
             <groupId>com.alibaba</groupId>
             <artifactId>fastjson</artifactId>
-            <version>1.2.13</version>
+            <version>1.2.60</version>
         </dependency>
         <!-- 阿里巴巴连接池Druid -->
         <dependency>
@@ -151,24 +135,6 @@
                     </dependency>
                 </dependencies>
             </plugin>
-            <!-- Docker maven plugin -->
-            <plugin>
-                <groupId>com.spotify</groupId>
-                <artifactId>docker-maven-plugin</artifactId>
-                <version>1.0.0</version>
-                <configuration>
-                    <imageName>${docker.image.prefix}/${project.artifactId}</imageName>
-                    <dockerDirectory>src/main/docker</dockerDirectory>
-                    <resources>
-                        <resource>
-                            <targetPath>/</targetPath>
-                            <directory>${project.build.directory}</directory>
-                            <include>${project.build.finalName}.jar</include>
-                        </resource>
-                    </resources>
-                </configuration>
-            </plugin>
-            <!-- Docker maven plugin -->
             <!--打包跳过test-->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
