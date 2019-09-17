@@ -4,7 +4,7 @@ import com.nettyrpc.client.RpcClient;
 import com.nettyrpc.client.proxy.RpcClientProxyBeanPostProcessor;
 import org.springframework.context.annotation.*;
 
-//@Configuration
+@Configuration
 public class AppClientConfig {
 
 //    @Bean(name = "serviceDiscovery")
