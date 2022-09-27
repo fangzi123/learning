@@ -1,0 +1,2 @@
+2022-09-27  15:59:09.513 [restartedMain] WARN  org.mybatis.spring.mapper.ClassPathMapperScanner - No MyBatis mapper was found in '[com.wangff.learning]' package. Please check your configuration.
+2022-09-27  15:59:39.091 [main] WARN  org.mybatis.spring.mapper.ClassPathMapperScanner - No MyBatis mapper was found in '[com.wangff.learning]' package. Please check your configuration.
