@@ -15,33 +15,33 @@
     <description>learning project for Spring Boot</description>
 
     <properties>
-        <java.version>11</java.version>
+        <java.version>1.8</java.version>
         <druid.version>1.1.0</druid.version>
         <mybatis-spring-boot-starter.version>1.3.0</mybatis-spring-boot-starter.version>
         <docker.image.prefix>springboot</docker.image.prefix>
     </properties>
 
     <dependencies>
-        <dependency>
-            <groupId>com.nettyrpc</groupId>
-            <artifactId>NettyRpc</artifactId>
-            <version>1.2-SNAPSHOT</version>
-            <exclusions>
-                <exclusion>
-                    <groupId>org.slf4j</groupId>
-                    <artifactId>slf4j-log4j12</artifactId>
-                </exclusion>
-            </exclusions>
-        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>com.nettyrpc</groupId>-->
+<!--            <artifactId>NettyRpc</artifactId>-->
+<!--            <version>1.2-SNAPSHOT</version>-->
+<!--            <exclusions>-->
+<!--                <exclusion>-->
+<!--                    <groupId>org.slf4j</groupId>-->
+<!--                    <artifactId>slf4j-log4j12</artifactId>-->
+<!--                </exclusion>-->
+<!--            </exclusions>-->
+<!--        </dependency>-->
         <dependency>
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-lang3</artifactId>
         </dependency>
-        <dependency>
-            <groupId>com.wdcloud</groupId>
-            <artifactId>common-redis</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
-        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>com.wdcloud</groupId>-->
+<!--            <artifactId>common-redis</artifactId>-->
+<!--            <version>0.0.1-SNAPSHOT</version>-->
+<!--        </dependency>-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-aop</artifactId>

@@ -17,10 +17,11 @@ public class HandleChain {
     }
 
     public void intercept(Request request, Response response) throws Exception {
-        if (iterator.hasNext()) {
+        while (iterator.hasNext()) {
             Interceptor interceptor = iterator.next();
-            interceptor.handleRequest(request);
-            interceptor.aroundProcess(request, response, this);
+            if (interceptor.handleRequest(request)) {
+                interceptor.aroundProcess(request, response, this);
+            }
         }
     }
 }
